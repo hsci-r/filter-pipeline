@@ -175,6 +175,7 @@ combined: \
   $(DATA_DIR)/places.csv \
   $(DATA_DIR)/poems.csv \
   $(DATA_DIR)/poem_collector.csv \
+  $(DATA_DIR)/poem_duplicates.csv \
   $(DATA_DIR)/poem_place.csv \
   $(DATA_DIR)/poem_year.csv \
   $(DATA_DIR)/poem_types.csv \
@@ -223,6 +224,10 @@ $(DATA_DIR)/poem_collector.csv: \
   $(work_dir)/jr/poem_collector.csv \
   $(work_dir)/kr/poem_collector.csv
 	csvstack $^ > $@
+
+$(DATA_DIR)/poem_duplicates.csv: \
+  $(raw_dir)/skvr_poem_duplicates.csv
+	cp $< $@
 
 $(DATA_DIR)/poem_place.csv: \
   $(work_dir)/skvr/poem_place.csv \
